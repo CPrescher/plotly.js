@@ -6,6 +6,7 @@
 * LICENSE file in the root directory of this source tree.
 */
 
+/* Modified by Louise Ord, 30-03-2020, to increase the boundaries for a discretised gl-heatmap2d */
 
 'use strict';
 
@@ -97,8 +98,9 @@ proto.update = function(fullTrace, calcTrace) {
 
     var xa = this.scene.xaxis;
     var ya = this.scene.yaxis;
-    fullTrace._extremes[xa._id] = Axes.findExtremes(xa, calcPt.x);
-    fullTrace._extremes[ya._id] = Axes.findExtremes(ya, calcPt.y);
+    /* LO 30-03-2020: Increased padding for discretised heatmap */
+    fullTrace._extremes[xa._id] = Axes.findExtremes(xa, calcPt.x, {ppad: calcPt.x[1] - calcPt.x[0]});
+    fullTrace._extremes[ya._id] = Axes.findExtremes(ya, calcPt.y, {ppad: calcPt.y[1] - calcPt.y[0]});
 };
 
 proto.dispose = function() {

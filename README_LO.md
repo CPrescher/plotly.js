@@ -2,6 +2,8 @@
 
 This forked version of plotly.js contains a branch called ordiology that sources a local version of gl-heatmap2d that has been modified to create a discretised heatmap rather than an interpolated one.
 
+The heatmapgl covert.js trace in the src code has also been modified to widen the bounds to fit the discretised gl-heatmap2d.
+
 ## Set up
 ### Cloning the repository
 git clone https://github.com/ordiology/plotly.js
